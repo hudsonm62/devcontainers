@@ -1,6 +1,6 @@
 {
   "id": "hugo-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "Hugo & Node",
   "publisher": "hudsonm62",
   "keywords": ["node", "debian", "golang", "hugo"],
