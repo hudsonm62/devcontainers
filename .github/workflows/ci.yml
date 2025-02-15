@@ -1,16 +1,12 @@
 name: "CI"
-on:
-  push:
-    paths:
-      - "src/**"
-      - "test/**"
-
+on: push
 jobs:
   detect-changes:
     runs-on: ubuntu-latest
     outputs:
       templates: ${{ steps.filter.outputs.changes }}
     steps:
+      - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
         id: filter
         with:
