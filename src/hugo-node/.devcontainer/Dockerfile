@@ -12,10 +12,14 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-ARG HUGOPKG=${HUGO_VARIANT}_${HUGO_VERSION}_linux-amd64.deb
-ARG HUGOPKG_PATH=${TEMP_DIR}/${HUGOPKG}
-
 RUN \
+    #
+    # Pull Correct Architecture for Hugo
+    ## warning: mostly untested outside on arm
+    ARCH=$(dpkg --print-architecture) && \
+    HUGOPKG=${HUGO_VARIANT}_${HUGO_VERSION}_linux-${ARCH}.deb && \
+    HUGOPKG_PATH=${TEMP_DIR}/${HUGOPKG} && \
+    #
     # Install git, sudo, wget
     apt-get update && apt-get -y install  \
         git sudo wget \
