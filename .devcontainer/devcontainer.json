@@ -1,16 +1,30 @@
-// More info: https://containers.dev/implementors/json_reference/
 {
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"mads-hartmann.bash-ide-vscode",
-				"dbaeumer.vscode-eslint"
-			]
-		}
-	},
-	"postCreateCommand": "npm install -g @devcontainers/cli"
+  "dockerFile": "Dockerfile", // Go, Hugo, Node, non-root user
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode"
+      ]
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+  "postCreateCommand": "npm ci",
+
+  "postStartCommand": {
+    "git safe": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    "take ownership": "sudo chown -R \"$(id -u):$(id -g)\" $PWD"
+  },
+
+  // use non-root user (// comment out to use 'root')
+  "remoteUser": "vscode"
 }

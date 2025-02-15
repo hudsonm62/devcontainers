@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@devcontainers/cli": "^0.73.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.1"
+  },
+  "scripts": {
+    "lint": "prettier . -c",
+    "lint:write": "prettier . -w"
+  }
+}

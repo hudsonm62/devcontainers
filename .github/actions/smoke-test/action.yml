@@ -1,7 +1,8 @@
-name: 'Smoke test'
+name: "Smoke test"
+description: "test templates"
 inputs:
   template:
-    description: 'Template to test'
+    description: "Template to test"
     required: true
 
 runs:

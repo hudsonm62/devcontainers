@@ -3,6 +3,11 @@ TEMPLATE_ID="$1"
 
 set -e
 
+if [ -z "$TEMPLATE_ID" ]; then
+  echo "Error: TEMPLATE_ID is not set or empty."
+  exit 1
+fi
+
 shopt -s dotglob
 
 SRC_DIR="/tmp/${TEMPLATE_ID}"
@@ -48,8 +53,8 @@ fi
 
 export DOCKER_BUILDKIT=1
 echo "(*) Installing @devcontainer/cli"
-npm install -g @devcontainers/cli
+npm ci
 
 echo "Building Dev Container"
 ID_LABEL="test-container=${TEMPLATE_ID}"
-devcontainer up --id-label ${ID_LABEL} --workspace-folder "${SRC_DIR}"
+npx devcontainer up --id-label ${ID_LABEL} --workspace-folder "${SRC_DIR}"
