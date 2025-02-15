@@ -1,0 +1,24 @@
+{
+  "name": "Hugo / Node",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+  // "features": {},
+
+  // 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // 👇 Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "npm ci",
+
+  // 👇 Important Setup
+  "postStartCommand": {
+    "git safe": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    "non-root ownership": "sudo chown -R \"$(id -u):$(id -g)\" $PWD" // 🤛 comment out if using 'root'
+  }
+
+  // 👇 Configure tool-specific properties.
+  // "customizations": {},
+}

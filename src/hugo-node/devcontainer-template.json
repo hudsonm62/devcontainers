@@ -1,0 +1,44 @@
+{
+  "id": "hugo-node",
+  "version": "0.0.1",
+  "name": "Hugo & Node",
+  "publisher": "hudsonm62",
+  "keywords": ["node", "debian", "golang", "hugo"],
+  "description": "Hugo & Node (from Nodesource) using non-root user",
+  "documentationURL": "https://github.com/hudsonm62/devcontainers",
+  "licenseURL": "https://github.com/hudsonm62/devcontainers/blob/master/LICENSE",
+  "options": {
+    "golangVersion": {
+      "type": "string",
+      "description": "Golang Image variant to use",
+      "proposals": [
+        "1.24",
+        "1.24-bookworm",
+        "1.23",
+        "1.23-bookworm",
+        "1-bookworm",
+        "bookworm"
+      ],
+      "default": "1.24-bookworm"
+    },
+    "hugoVariant": {
+      "description": "Extended variant?",
+      "type": "string",
+      "default": "hugo",
+      "proposals": ["hugo_extended", "hugo"]
+    },
+    "hugoVersion": {
+      "description": "Hugo version to use",
+      "type": "string",
+      "default": "0.143.1",
+      "proposals": ["0.143.1", "0.143.0", "0.142.0"]
+    },
+    "nodeVersion": {
+      "description": "Version from Nodesource to use",
+      "type": "string",
+      "proposals": ["23.x", "22.x", "21.x", "20.x"],
+      "default": "22.x"
+    }
+  },
+  "platforms": ["Any"]
+}
