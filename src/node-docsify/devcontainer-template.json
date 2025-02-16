@@ -1,6 +1,6 @@
 {
   "id": "node-docsify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "name": "Node/Docsify CLI",
   "publisher": "hudsonm62",
   "keywords": ["node", "alpine", "docsify", "static"],
