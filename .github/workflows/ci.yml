@@ -12,6 +12,7 @@ jobs:
         with:
           filters: |
             hugo-node: ./**/hugo-node/**
+            node-docsify: ./**/node-docsify/**
 
   smoketest:
     needs: [detect-changes]

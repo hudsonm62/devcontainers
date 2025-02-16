@@ -27,6 +27,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Get Short SHA
+        uses: hudsonm62/short-sha@v1
+        id: short-sha
+
       - name: Create PR for Documentation
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,7 +45,7 @@ jobs:
 
           branch=automated-documentation-update-$GITHUB_RUN_ID
           git checkout -b $branch
-          message='Automated documentation update'
+          message='Automated documentation update - ${{ steps.short-sha.outputs.sha }}'
 
           # Add / update and commit
           git add */**/README.md

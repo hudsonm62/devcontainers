@@ -6,6 +6,7 @@
     "prettier": "^3.5.1"
   },
   "scripts": {
+    "test": ".github/actions/smoke-test/build.sh",
     "lint": "prettier . -c",
     "lint:write": "prettier . -w"
   }
