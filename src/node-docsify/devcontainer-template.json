@@ -1,0 +1,25 @@
+{
+  "id": "node-docsify",
+  "version": "0.0.1",
+  "name": "Node/Docsify CLI",
+  "publisher": "hudsonm62",
+  "keywords": ["node", "alpine", "docsify", "static"],
+  "description": "Node & Docsify CLI Container using non-root user",
+  "documentationURL": "https://github.com/hudsonm62/devcontainers",
+  "licenseURL": "https://github.com/hudsonm62/devcontainers/blob/master/LICENSE",
+  "options": {
+    "imageVariant": {
+      "type": "string",
+      "description": "OS to pin",
+      "proposals": ["bullseye", "bookworm"],
+      "default": "bookworm"
+    },
+    "nodeVersion": {
+      "description": "Node version",
+      "type": "string",
+      "proposals": ["22", "20", "18"],
+      "default": "22"
+    }
+  },
+  "platforms": ["Node.js", "Docsify"]
+}
